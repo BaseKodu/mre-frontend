@@ -12,6 +12,5 @@ export default defineNuxtConfig({
     '@nuxt/ui'
   ],
   css: ['~/assets/css/main/main.css'],
-  pages: false,
   srcDir: 'src/'
 })
