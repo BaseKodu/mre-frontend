@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-background flex items-center justify-center p-4">
+  <div class="min-h-screen flex items-center justify-center p-4">
     <UCard class="w-full max-w-md">
       <div class="space-y-6">
         <div class="text-center">

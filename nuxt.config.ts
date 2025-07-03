@@ -9,7 +9,7 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     '@nuxt/image',
     '@nuxt/test-utils',
-    '@nuxt/ui'
+    '@nuxt/ui',
   ],
   css: ['~/assets/css/main/main.css'],
   srcDir: 'src/'
