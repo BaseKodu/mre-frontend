@@ -10,6 +10,11 @@
   </div>
 </template>
 
+<script setup>
+definePageMeta({
+  layout: 'blank'
+})
+</script> 
 <script>
 export default {
   name: 'AboutPage'

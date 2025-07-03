@@ -10,8 +10,14 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
+definePageMeta({
+  layout: 'blank'
+})
+</script> 
+
+<script lang="ts">
 export default {
   name: 'HomePage'
 }
-</script> 
+</script>
