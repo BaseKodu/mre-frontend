@@ -1,4 +1,4 @@
-import type { Config } from 'tailwindcss'
+/** @type {import('tailwindcss').Config} */
 import animate from "tailwindcss-animate"
 
 export default {
@@ -13,4 +13,4 @@ export default {
   ],
   prefix: "sc-",  // Adding a prefix to shadcn classes to avoid conflicts
   plugins: [animate],
-} satisfies Config 
+} 

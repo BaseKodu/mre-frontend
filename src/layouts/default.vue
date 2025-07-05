@@ -106,8 +106,8 @@
       <div class="flex h-full flex-1 flex-col overflow-hidden">
         <header class="flex h-16 shrink-0 items-center gap-2 border-b px-4">
           <button 
-            @click="toggleSidebar"
             class="flex h-8 w-8 items-center justify-center rounded-lg hover:bg-muted"
+            @click="toggleSidebar"
           >
             <UIcon 
               :name="isCollapsed ? 'i-heroicons-bars-3' : 'i-heroicons-bars-3'"
