@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import BasePropertyForm from '~/components/forms/Property/base-property-form.vue' 
+import PropertyFormWizard from '~/components/forms/Property';
 definePageMeta({
   layout: 'default'
 })
@@ -8,7 +8,7 @@ definePageMeta({
 <template>
   <div class="flex flex-col gap-4">
     <h1 class="text-2xl font-bold">Add New Estate</h1>
-    <BasePropertyForm />
+    <PropertyFormWizard property-type-selection="estate" />
   </div>
 </template>
   

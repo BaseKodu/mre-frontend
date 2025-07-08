@@ -41,8 +41,8 @@
                 <div>
                   <!-- Parent menu item -->
                   <button
-                    @click="toggleMenu(item)"
                     class="flex w-full items-center justify-between rounded-lg px-3 py-2 text-sidebar-foreground/70 transition-colors hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+                    @click="toggleMenu(item)"
                   >
                     <div class="flex items-center gap-3">
                       <UIcon :name="item.icon" class="h-4 w-4" />
@@ -68,7 +68,7 @@
                   >
                     <li v-for="child in item.children" :key="child.label">
                       <NuxtLink
-                        :to="generatePath(item.label, child.label)"
+                        :to="child.route"
                         class="flex items-center gap-3 rounded-lg px-3 py-2 text-sm text-sidebar-foreground/70 transition-colors hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
                         :class="{ 'bg-sidebar-accent text-sidebar-accent-foreground': isCurrentRoute(generatePath(item.label, child.label)) }"
                       >
@@ -169,6 +169,7 @@ interface MenuItem {
     label: string
     description: string
     icon: string
+    route?: string
   }[]
 }
 
@@ -190,7 +191,8 @@ const navigationItems = [
       {
         label: 'View All',
         description: '',
-        icon: 'i-lucide-cloud-download'
+        icon: 'i-lucide-cloud-download',
+        route: '/estates'
       }
     ]
   },
@@ -201,7 +203,8 @@ const navigationItems = [
       {
         label: 'Add New',
         description: '',
-        icon: 'i-lucide-house'
+        icon: 'i-lucide-house',
+        route: '/buildings'
       },
       {
         label: 'View All',
@@ -217,7 +220,8 @@ const navigationItems = [
       {
         label: 'Add New',
         description: '',
-        icon: 'i-lucide-house'
+        icon: 'i-lucide-house',
+        route: '/units'
       },
       {
         label: 'View All',
@@ -233,7 +237,8 @@ const navigationItems = [
       {
         label: 'Add New',
         description: '',
-        icon: 'i-lucide-house'
+        icon: 'i-lucide-house',
+        route: '/subunits'
       },
       {
         label: 'View All',
