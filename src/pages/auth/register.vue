@@ -2,7 +2,7 @@
   <NuxtLayout name="auth-layout">
     <template #title>Create Account</template>
     <template #description>Sign up for a new account</template>
-
+``
     <RegisterForm />
 
     <template #footer>

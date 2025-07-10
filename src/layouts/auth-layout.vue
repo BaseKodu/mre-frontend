@@ -6,7 +6,7 @@
           <h1 class="text-2xl font-bold text-primary">
             <slot name="title">Welcome</slot>
           </h1>
-          <p class="text-gray-500 mt-2">
+          <p class="text-primary mt-2">
             <slot name="description">Please sign in to continue</slot>
           </p>
         </div>

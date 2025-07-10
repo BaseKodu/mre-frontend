@@ -1,5 +1,11 @@
+import { useAuthStore } from '~/stores/authStore'
+import { defineNuxtRouteMiddleware, navigateTo } from '#app'
+
+// Check if we're in browser environment
+const isBrowser = typeof window !== 'undefined'
+
 export default defineNuxtRouteMiddleware((to) => {
-  // List of routes that should use the default layout
+  // List of routes that should use the default layout and require authentication
   const protectedRoutes = [
     '/dashboard',
     '/estates',
@@ -8,17 +14,39 @@ export default defineNuxtRouteMiddleware((to) => {
     '/subunits'
   ]
 
-  // Check if the current route should use the default layout
-  const shouldUseDefaultLayout = protectedRoutes.some(route => 
+  // List of auth routes that should not be accessible when logged in
+  const authRoutes = [
+    '/auth/login',
+    '/auth/register',
+    '/auth/forgot-password'
+  ]
+
+  // Check if the current route is protected
+  const isProtectedRoute = protectedRoutes.some(route => 
     to.path.startsWith(route)
   )
 
-  // If not a protected route, let it use its specified layout
-  if (!shouldUseDefaultLayout) {
+  // Check if the current route is an auth route
+  const isAuthRoute = authRoutes.some(route => 
+    to.path === route || to.path.startsWith(route)
+  )
+
+  // Skip auth checks during SSR for auth routes
+  if (!isBrowser && isAuthRoute) {
     return
   }
 
-  // For now, just allow access to protected routes
-  // You can add authentication logic here later
-  return
+  // Get the auth store
+  const authStore = useAuthStore()
+  const isAuthenticated = !!authStore.user
+
+  // If trying to access a protected route while not authenticated, redirect to login
+  if (isProtectedRoute && !isAuthenticated) {
+    return navigateTo('/auth/login')
+  }
+
+  // If trying to access an auth route while authenticated, redirect to dashboard
+  if (isAuthRoute && isAuthenticated) {
+    return navigateTo('/dashboard')
+  }
 }) 
